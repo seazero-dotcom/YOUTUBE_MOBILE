@@ -1,0 +1,113 @@
+:root {
+  /* Color */
+  --white-color: #ffffff;
+  --blue-color: #3a9aea;
+  --red-color: #ff0001;
+  --grey-background-color: #181818;
+  --grey-navbar-color: #202020;
+  --grey-font-color: #aaaaaa;
+
+  /* Size */
+  --padding: 12px;
+  --avatar-size: 36px;
+
+  /* Font size */
+  --font-large: 19px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0; /*기본사이즈 0*/
+  margin: 0; /*기본사이즈 0*/
+  box-sizing: border-box;
+  /*박스 사이징 : 우리가 패딩이나 마진을 줬을 때 그것을 포함되어서 사이즈가 결정 되도록 하는 것*/
+}
+
+body {
+  font-family: Roboto;
+}
+
+ul {
+  list-style: none;
+}
+
+button, /*버튼과*/
+button:focus {
+  /*버튼이 선택?클릭? 되었을 때*/
+  border: none; /*경계선을 없애준다*/
+  cursor: pointer; /*커서도 포인터로 바꿔주고*/
+  outline: none; /*아웃라인도 없애준다*/
+}
+
+/* Header */
+header {
+  /*헤더는 테그를 썼으니까 테그 선택자를 이용해서 작성*/
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: var(--grey-navbar-color);
+  color: var(--white-color);
+}
+
+header .logo {
+  font-size: var(--font-large);
+}
+
+header .logo i {
+  color: var(--red-color);
+}
+
+header .icons .fa-search {
+  margin-right: var(--padding);
+}
+
+/* SASS & LESS 방법으로 쓰면 헤더를 반복적으로 사용하지 않고 쓸 수 있다.
+header {
+    .logo {
+
+    }
+
+    .icons {
+
+    }
+}
+*/
+
+/* Video Player */
+.player {
+  position: sticky;
+  top: 0; /*sticky가 되면 위에 붙어있으라는 뜻*/
+  text-align: center;
+  /*화면에 딱 맞게있다가 화면 사이즈가 점점 커지면 여백에 맞춰서 center로 정렬됨*/
+  background-color: var(--grey-background-color);
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+}
+
+.info {
+  padding: var(--padding);
+}
+
+.info .metadata .hashtags {
+  display: flex;
+  font-size: var(--font-small);
+  color: var(--blue-color);
+}
+
+.info .metadata .hashtags li {
+  margin-right: var(--padding);
+}
+
+.info .metadata .titleAndButton {
+  display: flex;
+}
+
+.info .metadata .titleAndButton .title {
+  font-size: var(--font-medium);
+}
