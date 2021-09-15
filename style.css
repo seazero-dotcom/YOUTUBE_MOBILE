@@ -23,6 +23,7 @@
   margin: 0; /*기본사이즈 0*/
   box-sizing: border-box;
   /*박스 사이징 : 우리가 패딩이나 마진을 줬을 때 그것을 포함되어서 사이즈가 결정 되도록 하는 것*/
+  background-color: var(--grey-background-color);
 }
 
 body {
@@ -35,7 +36,7 @@ ul {
 
 button, /*버튼과*/
 button:focus {
-  /*버튼이 선택?클릭? 되었을 때*/
+  /*버튼이 선택?클릭? 되었을 때 둘 다*/
   border: none; /*경계선을 없애준다*/
   cursor: pointer; /*커서도 포인터로 바꿔주고*/
   outline: none; /*아웃라인도 없애준다*/
@@ -53,10 +54,19 @@ header {
 
 header .logo {
   font-size: var(--font-large);
+  background-color: var(--grey-navbar-color);
+}
+
+header .logo .title {
+  background-color: var(--grey-navbar-color);
 }
 
 header .logo i {
   color: var(--red-color);
+}
+
+header .icons {
+  background-color: var(--grey-navbar-color);
 }
 
 header .icons .fa-search {
@@ -90,7 +100,8 @@ header {
   max-width: 1000px;
 }
 
-.info {
+body .info {
+  /* upNext에는 패딩을 적용하지 않기 위해서 */
   padding: var(--padding);
 }
 
@@ -98,6 +109,7 @@ header {
   display: flex;
   font-size: var(--font-small);
   color: var(--blue-color);
+  margin-bottom: 2px;
 }
 
 .info .metadata .hashtags li {
@@ -110,4 +122,162 @@ header {
 
 .info .metadata .titleAndButton .title {
   font-size: var(--font-medium);
+  margin-right: var(--padding); /*텍스트 옆에 더보기 화살표와의 간격 조절*/
+  color: var(--white-color);
+}
+
+.info .metadata .titleAndButton .title.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /*화면사이즈 작아지면서 텍스트가 두 줄 넘어가면 ...으로 표시된*/
+  overflow: hidden;
+}
+
+.info .metadata .titleAndButton .moreBtn {
+  height: 100%; /*더보기 화살표를 텍스트의 위쪽라인과 맞춘다*/
+  color: var(--white-color);
+  transition: transform 300ms ease-in-out;
+}
+
+.info .metadata .titleAndButton .moreBtn.clicked {
+  transform: rotate(180deg);
+}
+
+.info .views {
+  font-size: var(--font-small);
+  color: var(--grey-font-color);
+}
+
+/* Action Buttons */
+.info .actions {
+  display: flex;
+  justify-content: space-around; /* 간격 골고루 넣기 */
+  margin: var(--padding) 0; /*위아래 패딩, 양옆 0*/
+}
+
+.info .actions button {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-small);
+  color: var(--white-color);
+}
+
+.info .actions button i {
+  margin: 0 auto; /*아이콘 폰트와 중간으로 맞추기*/
+  margin-bottom: calc(
+    var(--padding) / 2
+  ); /*calc를 사용해서 패딩의 절반값만 사용한다, 
+  위에 margin을 쓴다음에 margin-bottom을 한 것이라서 얘가 위에 것을 오버라이트 한 것이다.*/
+  font-size: 16px;
+}
+
+.info .actions button i.active {
+  color: var(--blue-color); /*파랑따봉 만들기*/
+}
+
+/* channel Description */
+.info .channel {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-font-color);
+  border-bottom: 1px solid var(--grey-font-color);
+}
+
+.info .channel .metadata {
+  display: flex;
+  align-items: center;
+}
+
+.info .channel .metadata .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info .channel .metadata img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+}
+
+.info .channel .metadata .info .name {
+  font-size: var(--font-medium);
+  color: var(--white-color);
+}
+
+.info .channel .metadata .info .subscribers {
+  font-size: var(--font-small);
+  color: var(--grey-font-color);
+}
+
+.info .channel .subscribe {
+  text-transform: uppercase; /*대문자로 바꿔주기*/
+  color: var(--red-color);
+  font-size: var(--font-medium);
+}
+
+/* upNext */
+.upNext {
+  padding: 0 var(--padding);
+}
+
+.upNext .title {
+  /*upNext에 바로 따라오는 자식들의 title만 꾸미도록 > 표시를 해준다*/
+  font-size: var(--font-medium);
+  color: var(--white-color);
+  margin-bottom: clac(var(--padding) / 2);
+}
+
+.upNext .item {
+  display: flex;
+  margin-top: var(--padding);
+}
+
+.upNext .item .img {
+  flex: 1 1 35%;
+  margin-right: var(--padding);
+}
+
+.upNext .item .img img {
+  width: 100%;
+}
+
+.upNext .item .info {
+  flex: 1 1 60%;
+}
+
+.upNext .item .moreBtn {
+  flex: 1 1 5%;
+  color: var(--grey-font-color);
+}
+
+.upNext .item .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.upNext .item .info .title {
+  margin-bottom: 4px;
+}
+
+.upNext .item .info .name {
+  color: var(--white-color);
+  font-size: var(--font-small);
+  margin-bottom: 2px;
+}
+
+.upNext .item .info .views {
+  font-size: var(--font-micro);
+}
+
+.infoAndUpNext {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  /* 768px이상일 때 적용된다 */
+  .infoAndUpNext {
+    flex-direction: row;
+    margin: var(--padding) 0;
+  }
 }

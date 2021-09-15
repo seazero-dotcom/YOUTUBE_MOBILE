@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="style.css">
     <title>Youtube Mobile</title>
     <script src="https://kit.fontawesome.com/7cea6d69ab.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
+    
     <!-- Header -->
     <header>
         <div class="logo">
@@ -26,9 +28,11 @@
 
     <!-- Video Player-->
     <section class="player">
-        <video controls src="video/portfolio_video.MP4"></video>
+        <video autoplay controls src="video/portfolio_video.MP4"></video>
     </section>
 
+    <div class="infoAndUpNext">
+    
     <!-- Video Info -->
     <section class="info">
         <!-- Metadata -->
@@ -39,48 +43,45 @@
                 <li>#webApplication</li>
             </ul>
             <div class="titleAndButton">
-                <span class="title"> Projects | 영화감독의 개인 포트폴리오 웹애플리케이션 개발 | 
+                <span class="title clamp"> Projects | 영화감독의 개인 포트폴리오 웹애플리케이션 개발 | 
                     프론트엔드, 백엔드, 기획까지! | HTML, CSS, Javascript, Tomcat, MySQL, SpringFramework
-                    | 배포한 후 지금까지 실제로 사용중!
+                    | 배포 후 지금까지 실제로 사용중!
                 </span>
-                <button class="moreBtn">
+                <button class="moreBtn clicked">
                     <i class="fas fa-caret-down"></i>
                 </button>
             </div>
-            <div class="views">
                 <span class="views">1M views 1 month ago</span>
-            </div>
         </div>
+
         <!-- Actions -->
-        <div class="actions">
-            <ul>
-                <li>
-                    <button>
-                        <i class="fas fa-thumbs-up"></i><span>1K</span>
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <i class="fas fa-thumbs-down"></i><span>0</span>
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <i class="fas fa-share"></i><span>Share</span>
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <i class="fas fa-plus"></i><span>save</span>
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <i class="fas fa-flag"></i><span>report</span>
-                    </button>
-                </li>
-            </ul>
-        </div>
+        <ul class="actions">
+            <li>
+                <button>
+                    <i class="active fas fa-thumbs-up"></i><span>1K</span>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <i class="fas fa-thumbs-down"></i><span>0</span>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <i class="fas fa-share"></i><span>Share</span>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <i class="fas fa-plus"></i><span>save</span>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <i class="fas fa-flag"></i><span>report</span>
+                </button>
+            </li>
+        </ul>
 
         <!-- Channel Description -->
         <div class="channel">
@@ -94,12 +95,15 @@
             <button class="subscribe">subscribe</button>
         </div>
     </section>
-    <!-- -->
+
+    <!-- Up Next -->
     <section class="upNext">
         <span class="title">Up next</span>
         <ul>
             <li class="item">
-                <img src="image/1.png" alt="">
+                <div class="img">
+                    <img src="image/1.png" alt="">
+                </div>
                 <div class="info">
                     <span class="title">파이썬 | @그래픽툴기초@ 거북이 오륜기 만들기 | 파이참</span>
                     <span class="name">마카오 최</span>
@@ -110,7 +114,9 @@
                 </button>
             </li>
             <li class="item">
-                <img src="image/2.png" alt="">
+                <div class="img">
+                    <img src="image/2.png" alt="">
+                </div>
                 <div class="info">
                     <span class="title">취준생 기분 전환</span>
                     <span class="name">마카오 최</span>
@@ -121,7 +127,9 @@
                 </button>
             </li>
             <li class="item">
-                <img src="image/3.JPG" alt="">
+                <div class="img">
+                    <img src="image/3.JPG" alt="">
+                </div>
                 <div class="info">
                     <span class="title">티셔츠 주문제작 하는법</span>
                     <span class="name">마카오 최</span>
@@ -133,5 +141,6 @@
             </li>
         </ul>
     </section>
+    </div>
 </body>
 </html>
